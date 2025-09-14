@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.service.impl;
 
 import java.lang.invoke.MethodHandles;
 
@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.db.UserInfDB;
 import com.example.demo.dto.UserInfDto;
+import com.example.demo.service.LoginService;
 
 @Service
 public class LoginServiceImpl implements LoginService{

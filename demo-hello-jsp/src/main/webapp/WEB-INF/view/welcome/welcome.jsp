@@ -16,5 +16,7 @@
     <c:if test="${sessionUser}== null" >
   		 <p>sessionUserが空です</p>
    </c:if>
+   
+   
 </body>
 </html>

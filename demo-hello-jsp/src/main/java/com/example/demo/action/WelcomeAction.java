@@ -31,8 +31,15 @@ public class WelcomeAction {
 		
 		model.addAttribute("sessionUser", sessionUser);
 		
-		logger.info("welcome画面へ遷移");
-		return "welcome/welcome";
+	    // menuLevel に応じてビューを切り替え
+	    if(sessionUser != null && sessionUser.getMenuLevel() == 0){
+			logger.info("管理者アカウントのwelcome画面へ遷移");
+	        return "welcome/admin";   // 管理者用 JSP
+	    } else {
+	    	logger.info("一般ユーザー用のwelcome画面へ遷移");
+	        return "welcome/user";    // 一般ユーザー用 JSP
+	    }
+//		return "welcome/welcome";
 	}
 	
 
