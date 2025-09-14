@@ -4,6 +4,8 @@ import java.lang.invoke.MethodHandles;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,8 +14,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.example.demo.db.UserInfDB;
+import com.example.demo.dto.UserInfDto;
 import com.example.demo.form.LoginForm;
+import com.example.demo.service.LoginService;
 
 import jakarta.validation.Valid;
 
@@ -22,8 +25,17 @@ import jakarta.validation.Valid;
 public class LoginAction {
 	private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
-//	@Autowired
-//	private UserInfDto sessionUser; // セッションスコープの DTO
+	/**
+	 * セッションスコープの ユーザー情報DTO
+	 */
+	@Autowired
+	private UserInfDto sessionUser; 
+	
+	/**
+	 * ログインサービス
+	 */
+	@Autowired
+	private LoginService loginSerivce;
 	
 	/*
 	 * ログイン画面JSP名
@@ -44,25 +56,33 @@ public class LoginAction {
 		logger.info("ログイン認証処理開始 ");
 		logger.info("userId={}", userId);
 		logger.info("password={}", password);
-
+	
 		if (bindingResult.hasErrors()) {
 			logger.info("バリデーションエラー");
 			return loginJSPName; // エラー時は再度フォーム表示
 		}
+
+		UserInfDto dbUser =loginSerivce.loginCheck(userId, password);
 		
-//		管理者ユーザーの情報を取得
-		String adminUserId = UserInfDB.userInfDtoDB.get(0).getUserId();
-		String adminPassword = UserInfDB.userInfDtoDB.get(0).getPassword ();
-		
-		if (adminUserId.equals(userId) && adminPassword.equals(password)) {
-			model.addAttribute("message", "ログイン成功");
+		if (dbUser!= null) {
+			logger.info("ログイン成功");
+			BeanUtils.copyProperties(dbUser, sessionUser);
+			
 			logger.info("welcomeへ遷移");
-			return "forward:/welcome/index";
+			return "redirect:/welcome/index";
 		} else {
-			model.addAttribute("message", "ログイン失敗");
-			logger.info("login画面を再読み込み");
+			model.addAttribute("message", "ユーザーIDまたはパスワードが間違っています");
+			logger.info("ログイン失敗　画面を再読み込み");
 			return loginJSPName;
 		}
 	}
-
+	
+    @GetMapping("/logout")
+    public String logout() {
+        // セッションスコープの DTO をリセット
+        sessionUser.setUserId(null);
+        sessionUser.setUserName(null);
+        return "redirect:/login/index";
+    }
+    
 }
