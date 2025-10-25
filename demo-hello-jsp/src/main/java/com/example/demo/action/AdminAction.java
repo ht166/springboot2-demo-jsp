@@ -3,6 +3,8 @@ package com.example.demo.action;
 import java.lang.invoke.MethodHandles;
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -14,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.demo.dto.UserInfDto;
 import com.example.demo.service.AdminService;
 
-import jakarta.annotation.Resource;
 
 @Controller
 @RequestMapping(value ="/admin")
