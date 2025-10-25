@@ -16,18 +16,18 @@ public class LoginServiceImpl implements LoginService{
 
 	@Override
 	public UserInfDto loginCheck(String userId, String password) {
-		logger.info("ãƒ­ã‚°ã‚¤ãƒ³ãƒã‚§ãƒƒã‚¯é–‹å§‹");
+		logger.info("ƒƒOƒCƒ“ƒ`ƒFƒbƒNŠJn");
 		UserInfDto dbUser = UserInfDB.userInfDtoDB.stream()
 			    .filter(u -> u.getUserId().equals(userId))
 			    .findFirst()
 			    .orElse(null);
 
 			if(dbUser != null && dbUser.getPassword().equals(password)) {
-				logger.info("ãƒ­ã‚°ã‚¤ãƒ³ãƒã‚§ãƒƒã‚¯æˆåŠŸ");
+				logger.info("ƒƒOƒCƒ“ƒ`ƒFƒbƒN¬Œ÷");
 			   return dbUser;
 			}
 			
-			logger.info("ãƒ­ã‚°ã‚¤ãƒ³ãƒã‚§ãƒƒã‚¯å¤±æ•—");
+			logger.info("ƒƒOƒCƒ“ƒ`ƒFƒbƒN¸”s");
 		return null;
 	}
 

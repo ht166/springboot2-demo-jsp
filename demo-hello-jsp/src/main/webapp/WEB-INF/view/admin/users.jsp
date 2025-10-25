@@ -2,13 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<h2>ãƒ¦ãƒ¼ã‚¶ãƒ¼ä¸€è¦§</h2>
+<h2>ƒ†[ƒU[ˆê——</h2>
 <table border="1">
 	<tr>
 		<th>ID</th>
-		<th>ãƒ¦ãƒ¼ã‚¶ãƒ¼å</th>
-		<th>ãƒ¡ãƒ‹ãƒ¥ãƒ¼æ¨©é™</th>
-		<th>æ“ä½œ</th>
+		<th>ƒ†[ƒU[–¼</th>
+		<th>ƒƒjƒ…[Œ ŒÀ</th>
+		<th>‘€ì</th>
 	</tr>
 	<c:forEach var="user" items="${users}">
 		<tr>
@@ -16,13 +16,13 @@
 			<td>${user.userName}</td>
 			<td>${user.menuLevel}</td>
 			<td><a
-				href="${pageContext.request.contextPath}/admin/editUser/${user.userId}">ç·¨é›†</a>
+				href="${pageContext.request.contextPath}/admin/editUser/${user.userId}">•ÒW</a>
 				<form
 					action="${pageContext.request.contextPath}/admin/deleteUser/${user.userId}"
 					method="post" style="display: inline;">
 					<input type="hidden" name="${_csrf.parameterName}"
 						value="${_csrf.token}" />
-					<button type="submit">å‰Šé™¤</button>
+					<button type="submit">íœ</button>
 				</form></td>
 		</tr>
 	</c:forEach>
