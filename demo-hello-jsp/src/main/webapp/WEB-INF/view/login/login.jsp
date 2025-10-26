@@ -1,15 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=MS932" pageEncoding="MS932"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>„É≠„Ç∞„Ç§„É≥</title>
+    <meta charset="MS932">
+    <title>ÉçÉOÉCÉì</title>
     <script>
         function submitLoginForm(event) {
-            event.preventDefault(); // ÈÄöÂ∏∏„ÅÆ„Éï„Ç©„Éº„É†ÈÄÅ‰ø°„ÇíÊ≠¢„ÇÅ„Çã
+            event.preventDefault(); // í èÌÇÃÉtÉHÅ[ÉÄëóêMÇé~ÇﬂÇÈ
 
             const form = event.target;
             const formData = new FormData(form);
@@ -20,11 +20,11 @@
             })
             .then(response => {
                 if (response.redirected) {
-                    // SpringÂÅ¥„Åß„É≠„Ç∞„Ç§„É≥ÊàêÂäü ‚Üí redirect:/index „Å™„Å©„ÅåËøî„Å£„Å¶„Åè„ÇãÂ†¥Âêà
+                    // Springë§Ç≈ÉçÉOÉCÉìê¨å˜ Å® redirect:/index Ç»Ç«Ç™ï‘Ç¡ÇƒÇ≠ÇÈèÍçá
                     window.open(response.url, "childWindow",
                         "width=900,height=700,resizable=yes,scrollbars=yes");
                 } else {
-                    // Â§±ÊïóÊôÇ„ÅØÁîªÈù¢„Çí„Åù„ÅÆ„Åæ„ÅæÊõ¥Êñ∞
+                    // é∏îséûÇÕâÊñ ÇÇªÇÃÇ‹Ç‹çXêV
                     response.text().then(html => {
                         document.open();
                         document.write(html);
@@ -33,13 +33,13 @@
                 }
             })
             .catch(err => {
-                alert("ÈÄö‰ø°„Ç®„É©„Éº: " + err);
+                alert("í êMÉGÉâÅ[: " + err);
             });
         }
     </script>
 </head>
 <body>
-    <h2>„É≠„Ç∞„Ç§„É≥</h2>
+    <h2>ÉçÉOÉCÉì</h2>
 
     <c:if test="${not empty message}">
         <p style="color:red">${message}</p>
@@ -47,15 +47,15 @@
 
     <form:form modelAttribute="loginForm" action="/login/auth" method="post" onsubmit="submitLoginForm(event)">
         <div>
-            <form:label path="userId">„É¶„Éº„Ç∂„ÉºIDÔºö</form:label>
+            <form:label path="userId">ÉÜÅ[ÉUÅ[IDÅF</form:label>
             <form:input path="userId"/>
         </div>
         <div>
-            <form:label path="password">„Éë„Çπ„ÉØ„Éº„ÉâÔºö</form:label>
+            <form:label path="password">ÉpÉXÉèÅ[ÉhÅF</form:label>
             <form:password path="password"/>
         </div>
         <div>
-            <input type="submit" value="„É≠„Ç∞„Ç§„É≥"/>
+            <input type="submit" value="ÉçÉOÉCÉì"/>
         </div>
         <div>
             <form:errors path="*" style="color: red;"/>

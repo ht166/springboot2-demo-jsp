@@ -9,16 +9,16 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(auth -> auth
-                .anyRequest().permitAll() // å…¨ã¦ã®ãƒªã‚¯ã‚¨ã‚¹ãƒˆã‚’è¨±å¯
+                .anyRequest().permitAll() // ‘S‚Ä‚ÌƒŠƒNƒGƒXƒg‚ğ‹–‰Â
             )
             .formLogin(form -> form
-                    .loginPage("/login/login")   // è‡ªä½œãƒ­ã‚°ã‚¤ãƒ³ç”»é¢
+                    .loginPage("/login/login")   // ©ìƒƒOƒCƒ“‰æ–Ê
                     .permitAll()
                 )
-//            .csrf(csrf -> csrf.disable()); // é–‹ç™ºç”¨ã«CSRFç„¡åŠ¹åŒ–ï¼ˆå¿…è¦ãªã‚‰ï¼‰
+//            .csrf(csrf -> csrf.disable()); // ŠJ”­—p‚ÉCSRF–³Œø‰»i•K—v‚È‚çj
             ;
         return http.build();
     }

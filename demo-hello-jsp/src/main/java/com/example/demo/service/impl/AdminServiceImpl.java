@@ -9,7 +9,7 @@ import com.example.demo.dto.UserInfDto;
 import com.example.demo.service.AdminService;
 
 /**
- * ç®¡ç†è€…ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã®ã‚µãƒ¼ãƒ“ã‚¹ã‚’å®Ÿè£…ã—ãŸã‚¯ãƒ©ã‚¹
+ * ŠÇ—ŽÒƒAƒJƒEƒ“ƒg‚ÌƒT[ƒrƒX‚ðŽÀ‘•‚µ‚½ƒNƒ‰ƒX
  * @author ht166
  *
  */

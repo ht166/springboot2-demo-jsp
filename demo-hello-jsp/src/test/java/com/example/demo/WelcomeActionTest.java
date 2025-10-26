@@ -38,9 +38,9 @@ class WelcomeActionTest {
 	}
 
 	@Test
-	@DisplayName("ç®¡ç†è€…ãƒ¦ãƒ¼ã‚¶ãƒ¼ãªã‚‰Adminãƒ“ãƒ¥ãƒ¼ãŒè¿”ã‚Šã€Modelã«ãƒ¦ãƒ¼ã‚¶ãƒ¼æƒ…å ±ãŒå…¥ã‚‹")
+	@DisplayName("ŠÇ—Òƒ†[ƒU[‚È‚çAdminƒrƒ…[‚ª•Ô‚èAModel‚Éƒ†[ƒU[î•ñ‚ª“ü‚é")
 	void DisplayWelcomAdminTest() throws Exception {
-		// ãƒ¢ãƒƒã‚¯ã®ãƒ¦ãƒ¼ã‚¶ãƒ¼æƒ…å ±ã‚’è¨­å®š
+		// ƒ‚ƒbƒN‚Ìƒ†[ƒU[î•ñ‚ğİ’è
 		org.mockito.Mockito.when(sessionUser.getMenuLevel()).thenReturn(0);
 		org.mockito.Mockito.when(sessionUser.getUserName()).thenReturn("AdminUser");
 
@@ -53,7 +53,7 @@ class WelcomeActionTest {
 	}
 
 	@Test
-	@DisplayName("ä¸€èˆ¬ãƒ¦ãƒ¼ã‚¶ãƒ¼ãªã‚‰Userãƒ“ãƒ¥ãƒ¼ãŒè¿”ã‚Šã€Modelã«ãƒ¦ãƒ¼ã‚¶ãƒ¼æƒ…å ±ãŒå…¥ã‚‹")
+	@DisplayName("ˆê”Êƒ†[ƒU[‚È‚çUserƒrƒ…[‚ª•Ô‚èAModel‚Éƒ†[ƒU[î•ñ‚ª“ü‚é")
 	void DisplayWelcomUserTest() throws Exception {
 		org.mockito.Mockito.when(sessionUser.getMenuLevel()).thenReturn(1);
 		org.mockito.Mockito.when(sessionUser.getUserName()).thenReturn("NormalUser");

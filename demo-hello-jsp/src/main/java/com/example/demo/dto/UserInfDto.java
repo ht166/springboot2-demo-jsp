@@ -8,7 +8,7 @@ import org.springframework.web.context.annotation.SessionScope;
 import lombok.Getter;
 import lombok.Setter;
 /**
- * ãƒ¦ãƒ¼ã‚¶ãƒ¼æƒ…å ±ã®DTO
+ * ƒ†[ƒU[î•ñ‚ÌDTO
  * @author ht166
  *
  */
@@ -18,27 +18,27 @@ import lombok.Setter;
 @SessionScope
 public class UserInfDto {
 	/*
-	 * ãƒ¦ãƒ¼ã‚¶ãƒ¼ID
+	 * ƒ†[ƒU[ID
 	 */
 	private String userId;
 	
 	/*
-	 * ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰
+	 * ƒpƒXƒ[ƒh
 	 */
 	private String password;
 	
 	/*
-	 * ãƒ¦ãƒ¼ã‚¶ãƒ¼å
+	 * ƒ†[ƒU[–¼
 	 */
 	private String userName;
 	
 	/*
-	 * ç™»éŒ²æ™‚é–“
+	 * “o˜^ŠÔ
 	 */
 	private Timestamp redisterTime;
 	
 	/*
-	 * ãƒ¡ãƒ‹ãƒ¥ãƒ¼ãƒ¬ãƒ™ãƒ«
+	 * ƒƒjƒ…[ƒŒƒxƒ‹
 	 */
 	
 	private int menuLevel;

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.dto.UserInfDto;
 /**
- * welcomeç”»é¢ã®ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ãƒ¼
+ * welcome‰æ–Ê‚ÌƒRƒ“ƒgƒ[ƒ‰[
  * @author ht166
  *
  */
@@ -21,7 +21,7 @@ import com.example.demo.dto.UserInfDto;
 public class WelcomeAction {
 	private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 	/**
-	 * ã‚»ãƒƒã‚·ãƒ§ãƒ³ã‚¹ã‚³ãƒ¼ãƒ—ã® ãƒ¦ãƒ¼ã‚¶ãƒ¼æƒ…å ±DTO
+	 * ƒZƒbƒVƒ‡ƒ“ƒXƒR[ƒv‚Ì ƒ†[ƒU[î•ñDTO
 	 */
 	@Autowired
 	private UserInfDto sessionUser; 
@@ -31,13 +31,13 @@ public class WelcomeAction {
 		
 		model.addAttribute("sessionUser", sessionUser);
 		
-	    // menuLevel ã«å¿œã˜ã¦ãƒ“ãƒ¥ãƒ¼ã‚’åˆ‡ã‚Šæ›¿ãˆ
+	    // menuLevel ‚É‰‚¶‚Äƒrƒ…[‚ğØ‚è‘Ö‚¦
 	    if(sessionUser != null && sessionUser.getMenuLevel() == 0){
-			logger.info("ç®¡ç†è€…ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã®welcomeç”»é¢ã¸é·ç§»");
-	        return "welcome/admin";   // ç®¡ç†è€…ç”¨ JSP
+			logger.info("ŠÇ—ÒƒAƒJƒEƒ“ƒg‚Ìwelcome‰æ–Ê‚Ö‘JˆÚ");
+	        return "welcome/admin";   // ŠÇ—Ò—p JSP
 	    } else {
-	    	logger.info("ä¸€èˆ¬ãƒ¦ãƒ¼ã‚¶ãƒ¼ç”¨ã®welcomeç”»é¢ã¸é·ç§»");
-	        return "welcome/user";    // ä¸€èˆ¬ãƒ¦ãƒ¼ã‚¶ãƒ¼ç”¨ JSP
+	    	logger.info("ˆê”Êƒ†[ƒU[—p‚Ìwelcome‰æ–Ê‚Ö‘JˆÚ");
+	        return "welcome/user";    // ˆê”Êƒ†[ƒU[—p JSP
 	    }
 //		return "welcome/welcome";
 	}
