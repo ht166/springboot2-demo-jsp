@@ -8,34 +8,36 @@
     <meta charset="MS932">
     <title>ログイン</title>
     <script>
-        function submitLoginForm(event) {
-            event.preventDefault(); // 通常のフォーム送信を止める
+    function submitLoginForm(event) {
+        event.preventDefault();
 
-            const form = event.target;
-            const formData = new FormData(form);
+        const form = event.target;
+        const formData = new FormData(form);
 
-            fetch(form.action, {
-                method: "POST",
-                body: formData
-            })
-            .then(response => {
-                if (response.redirected) {
-                    // Spring側でログイン成功 → redirect:/index などが返ってくる場合
-                    window.open(response.url, "childWindow",
-                        "width=900,height=700,resizable=yes,scrollbars=yes");
-                } else {
-                    // 失敗時は画面をそのまま更新
-                    response.text().then(html => {
-                        document.open();
-                        document.write(html);
-                        document.close();
-                    });
-                }
-            })
-            .catch(err => {
-                alert("通信エラー: " + err);
-            });
-        }
+        fetch(form.action, {
+            method: "POST",
+            body: formData
+        })
+        .then(async response => {
+            if (response.redirected) {
+                window.open(response.url, "childWindow",
+                    "width=900,height=700,resizable=yes,scrollbars=yes");
+            } else {
+                // MS932でテキストを取得
+                const blob = await response.blob();
+                const arrayBuffer = await blob.arrayBuffer();
+                const decoder = new TextDecoder("shift_jis"); // MS932と互換
+                const html = decoder.decode(arrayBuffer);
+
+                document.open();
+                document.write(html);
+                document.close();
+            }
+        })
+        .catch(err => {
+            alert("通信エラー: " + err);
+        });
+    }
     </script>
 </head>
 <body>
