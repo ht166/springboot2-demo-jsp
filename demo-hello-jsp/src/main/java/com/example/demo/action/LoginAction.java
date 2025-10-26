@@ -5,7 +5,6 @@ import java.lang.invoke.MethodHandles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -27,20 +26,26 @@ public class LoginAction {
 	/**
 	 * セッションスコープの ユーザー情報DTO
 	 */
-	@Autowired
-	private UserInfDto sessionUser; 
-	
+//	@Autowired
+//	private UserInfDto sessionUser; 
+	private final UserInfDto sessionUser;
+	    
 	/**
 	 * ログインサービス
 	 */
-	@Autowired
-	private LoginService loginSerivce;
-	
+//	@Autowired
+//	private LoginService loginSerivce;
+	private final LoginService loginService;
 	/*
 	 * ログイン画面JSP名
 	 */
 	String loginJSPName = "login/login";
-
+	
+	public LoginAction(LoginService loginService, UserInfDto sessionUser) {
+	        this.loginService = loginService;
+	        this.sessionUser = sessionUser;
+	    }
+	
 	@GetMapping("/index")
 	public String index(Model model) {
 		model.addAttribute("loginForm", new LoginForm());
@@ -61,7 +66,7 @@ public class LoginAction {
 			return loginJSPName; // エラー時は再度フォーム表示
 		}
 
-		UserInfDto dbUser =loginSerivce.loginCheck(userId, password);
+		UserInfDto dbUser =loginService.loginCheck(userId, password);
 		
 		if (dbUser!= null) {
 			logger.info("ログイン成功");
@@ -76,12 +81,6 @@ public class LoginAction {
 		}
 	}
 	
-    @GetMapping("/logout")
-    public String logout() {
-        // セッションスコープの DTO をリセット
-        sessionUser.setUserId(null);
-        sessionUser.setUserName(null);
-        return "redirect:/login/index";
-    }
+ 
     
 }

@@ -3,7 +3,7 @@ package com.example.demo.action;
 import java.lang.invoke.MethodHandles;
 import java.util.List;
 
-import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,20 +19,21 @@ import com.example.demo.service.AdminService;
 
 @Controller
 @RequestMapping(value ="/admin")
-public class AdminAction {
+public class AdminAction extends BaseAction {
 	private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 	
-	@Resource
-	private AdminService adminService;
+	private final AdminService adminService;
 	
-	private List<UserInfDto> users;
+	public AdminAction(AdminService adminService) {
+		this.adminService = adminService;
+	}
 	
 	@GetMapping("/users")
 	public String users(Model model) {
 		logger.info("ユーザー一覧画面へ遷移");
 		
 	    // ユーザー一覧などを取得して model にセット
-	    users = adminService.getAllUsers();
+		List<UserInfDto> users = adminService.getAllUsers();
 	    model.addAttribute("users", users);
 	    
 	    return "admin/users"; // admin/users.jsp を表示
@@ -54,6 +55,15 @@ public class AdminAction {
 	@PostMapping("/delete")
 	public String deleteUser(Model model) {
 		return "forward:/admin/users";
+	}
+	
+	/**
+	 * ログアウト処理
+	 */
+	@GetMapping("/logout")
+	public String logout(HttpServletRequest req) {
+		
+		return super.logout(req);
 	}
 
 }
