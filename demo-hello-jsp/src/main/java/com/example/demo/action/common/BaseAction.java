@@ -1,4 +1,4 @@
-package com.example.demo.action;
+package com.example.demo.action.common;
 
 import javax.servlet.http.HttpServletRequest;
 

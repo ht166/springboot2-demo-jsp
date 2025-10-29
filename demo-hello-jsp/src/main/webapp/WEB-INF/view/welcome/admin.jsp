@@ -16,7 +16,10 @@
   		 <p>sessionUserが空です</p>
    </c:if>
 <a href="${pageContext.request.contextPath}/admin/users">
-    <button type="button">ユーザー管理画面_一覧へ</button>
+    <button type="button">ユーザー管理画面_一覧</button>
+</a>
+<a href="${pageContext.request.contextPath}/admin/user/search/index">
+    <button type="button">ユーザー検索条件入力画面</button>
 </a>
 </body>
 </html>

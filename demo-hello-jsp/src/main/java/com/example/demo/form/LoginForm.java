@@ -17,5 +17,6 @@ public class LoginForm {
 	
 	@NotBlank(message="パスワードは必須です")
     private String password;
-
+	
+	private String testDisplay;
 }

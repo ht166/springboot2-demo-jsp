@@ -42,7 +42,6 @@
 </head>
 <body>
     <h2>ƒƒOƒCƒ“</h2>
-
     <c:if test="${not empty message}">
         <p style="color:red">${message}</p>
     </c:if>

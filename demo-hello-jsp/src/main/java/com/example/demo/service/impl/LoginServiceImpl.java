@@ -13,7 +13,7 @@ import com.example.demo.service.LoginService;
 @Service
 public class LoginServiceImpl implements LoginService{
 	private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-
+	
 	@Override
 	public UserInfDto loginCheck(String userId, String password) {
 		logger.info("ログインチェック開始");

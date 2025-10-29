@@ -1,4 +1,4 @@
-package com.example.demo.action;
+package com.example.demo.action.admin;
 
 import java.lang.invoke.MethodHandles;
 import java.util.List;
@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.demo.action.common.BaseAction;
 import com.example.demo.dto.UserInfDto;
 import com.example.demo.service.AdminService;
 

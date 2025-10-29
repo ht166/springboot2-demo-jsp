@@ -41,7 +41,7 @@ class WelcomeActionTest {
 	@DisplayName("管理者ユーザーならAdminビューが返り、Modelにユーザー情報が入る")
 	void DisplayWelcomAdminTest() throws Exception {
 		// モックのユーザー情報を設定
-		org.mockito.Mockito.when(sessionUser.getMenuLevel()).thenReturn(0);
+		org.mockito.Mockito.when(sessionUser.getMenuLevel()).thenReturn("0");
 		org.mockito.Mockito.when(sessionUser.getUserName()).thenReturn("AdminUser");
 
 		mockMvc.perform(get("/welcome/index"))
@@ -55,7 +55,7 @@ class WelcomeActionTest {
 	@Test
 	@DisplayName("一般ユーザーならUserビューが返り、Modelにユーザー情報が入る")
 	void DisplayWelcomUserTest() throws Exception {
-		org.mockito.Mockito.when(sessionUser.getMenuLevel()).thenReturn(1);
+		org.mockito.Mockito.when(sessionUser.getMenuLevel()).thenReturn("1");
 		org.mockito.Mockito.when(sessionUser.getUserName()).thenReturn("NormalUser");
 
 		mockMvc.perform(get("/welcome/index"))

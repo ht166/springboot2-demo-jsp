@@ -17,14 +17,21 @@ public class UserInfDB {
 	        admin.setUserId("admin");
 	        admin.setPassword("1234");
 	        admin.setUserName("管理者");
-	        admin.setMenuLevel(0);
+	        admin.setMenuLevel("0");
 	        userInfDtoDB.add(admin);
 
 	        UserInfDto user1 = new UserInfDto();
 	        user1.setUserId("user1");
 	        user1.setPassword("abcd");
-	        user1.setUserName("一般ユーザー");
-	        user1.setMenuLevel(1);
+	        user1.setUserName("一般ユーザーA");
+	        user1.setMenuLevel("1");
 	        userInfDtoDB.add(user1);
+	        
+	        UserInfDto user2 = new UserInfDto();
+	        user2.setUserId("user2");
+	        user2.setPassword("efgh");
+	        user2.setUserName("一般ユーザーB");
+	        user2.setMenuLevel("1");
+	        userInfDtoDB.add(user2);
 	    }
 }

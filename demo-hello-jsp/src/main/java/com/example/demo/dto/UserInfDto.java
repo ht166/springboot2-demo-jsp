@@ -41,5 +41,5 @@ public class UserInfDto {
 	 * ƒƒjƒ…[ƒŒƒxƒ‹
 	 */
 	
-	private int menuLevel;
+	private String menuLevel;
 }
