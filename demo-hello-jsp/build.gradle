@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '2.7.18'
 	id 'io.spring.dependency-management' version '1.1.7'
+	id 'war'
 }
 
 group = 'com.example'
@@ -13,6 +14,14 @@ java {
 		languageVersion = JavaLanguageVersion.of(17)
 	}
 }
+
+bootWar {
+    archiveFileName = 'demo-hello-jsp.war'
+}
+bootJar {
+    enabled = false   // jarê∂ê¨Çñ≥å¯âª
+}
+
 
 configurations {
 	compileOnly {
