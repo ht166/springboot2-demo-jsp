@@ -20,7 +20,7 @@ import com.example.demo.dto.UserInfDto;
 import com.example.demo.form.LoginForm;
 import com.example.demo.service.LoginService;
 
-@RequestMapping(value = "/login")
+@RequestMapping(value = "/demo-hello-jsp/login")
 @Controller
 
 public class LoginAction extends BaseAction{
@@ -90,7 +90,7 @@ public class LoginAction extends BaseAction{
 			
 			logger.info("welcomeへ遷移");
 			
-			return "redirect:/welcome/index";
+			return "redirect:/demo/welcome/index";
 		} else {
 			model.addAttribute("message", "ユーザーIDまたはパスワードが間違っています");
 			logger.info("ログイン失敗　画面を再読み込み");

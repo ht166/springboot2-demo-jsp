@@ -1,7 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=MS932" pageEncoding="MS932"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,7 +43,7 @@
         <p style="color:red">${message}</p>
     </c:if>
 
-    <form:form modelAttribute="loginForm" action="/login/auth" method="post" onsubmit="submitLoginForm(event)">
+    <form:form modelAttribute="loginForm" action="/demo-hello-jsp/login/auth" method="post" onsubmit="submitLoginForm(event)">
         <div>
             <form:label path="userId">ユーザーID：</form:label>
             <form:input path="userId"/>

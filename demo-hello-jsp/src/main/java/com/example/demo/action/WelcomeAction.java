@@ -19,7 +19,7 @@ import com.example.demo.dto.UserInfDto;
  *
  */
 @Controller
-@RequestMapping(value="/welcome")
+@RequestMapping(value="/demo-hello-jsp//welcome")
 public class WelcomeAction extends BaseAction {
 	private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 	/**
